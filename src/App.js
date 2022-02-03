@@ -3,65 +3,88 @@ import { useState } from 'react';
 import './App.css';
 import Editor from './components/Editor';
 import Previewer from './components/Previewer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 function App() {
-  const placeholder = `# Welcome to my React Markdown Previewer!
+  const placeholder = `## Headers
 
-  ## This is a sub-heading...
-  ### And here's some other cool stuff:
+  # This is a Heading h1
+  ## This is a Heading h2 
+  ###### This is a Heading h6
   
-  Heres some code, \`<div></div>\`, between 2 backticks.
+  ## Emphasis
+  
+  *This text will be italic*  
+  _This will also be italic_
+  
+  **This text will be bold**  
+  __This will also be bold__
+  
+  _You **can** combine them_
+  
+  ## Lists
+  
+  ### Unordered
+  
+  * Item 1
+  * Item 2
+  * Item 2a
+  * Item 2b
+  
+  ### Ordered
+  
+  1. Item 1
+  1. Item 2
+  1. Item 3
+    1. Item 3a
+    1. Item 3b
+  
+  ## Images
+  
+  ![This is a alt text.](/image/sample.png "This is a sample image.")
+  
+  ## Links
+  
+  You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
+  
+  ## Blockquotes
+  
+  > Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.
+  >
+  >> Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+  
+  ## Tables
+  
+  | Left columns  | Right columns |
+  | ------------- |:-------------:|
+  | left foo      | right foo     |
+  | left bar      | right bar     |
+  | left baz      | right baz     |
+  
+  ## Blocks of code
   
   \`\`\`
-  // this is multi-line code:
-  
-  function anotherExample(firstLine, lastLine) {
-    if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
-      return multiLineCode;
-    }
-  }
+  let message = 'Hello world';
+  alert(message);
   \`\`\`
   
-  You can also make text **bold**... whoa!
-  Or _italic_.
-  Or... wait for it... **_both!_**
-  And feel free to go crazy ~~crossing stuff out~~.
+  ## Inline code
   
-  There's also [links](https://www.freecodecamp.org), and
-  > Block Quotes!
-  
-  And if you want to get really crazy, even tables:
-  
-  Wild Header | Crazy Header | Another Header?
-  ------------ | ------------- | -------------
-  Your content can | be here, and it | can be here....
-  And here. | Okay. | I think we get it.
-  
-  - And of course there are lists.
-    - Some are bulleted.
-       - With different indentation levels.
-          - That look like this.
-  
-  
-  1. And there are numbered lists too.
-  1. Use just 1s if you want!
-  1. And last but not least, let's not forget embedded images:
-  
-  ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
-  `;
+  This web site is using \`markedjs/marked\`.`;
   const [content, setContent] = useState(placeholder)
 
   const handleChange = (evt) => {
     setContent(evt.target.value)
   }
   return (
-    <div className="App">
+    <div className='app'>
+      <Header />
       <Editor content={content} handleChange={handleChange} />
       <Previewer content={content} />
+      <Footer />
     </div>
-
   );
 }
-
 export default App;

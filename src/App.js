@@ -43,7 +43,7 @@ function App() {
   
   ## Images
   
-  ![This is a alt text.](/image/sample.png "This is a sample image.")
+  ![This is a alt text.](https://raw.githubusercontent.com/2016lisali/personal_portfolio/main/public/assets/fcc_markdown_preview.jpg "This is a alt text.")
   
   ## Links
   
